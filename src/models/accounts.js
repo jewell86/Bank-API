@@ -1,36 +1,35 @@
-const accounts = require(../../data/accounts.data.json)
-const uuid = require('uuid')
+const accounts = require('../data/accounts.data.json')
+const uuid = require('uuid/v4')
 
 function getAll(limit) {
     return limit? accounts.splice(0, limit) : accounts
 }
 
 function getOne(id){
-    const account = accounts.find(account => account.id === id)
-    return account
+    return accounts.find(account => account.id === id)
 }
 
 function create(name, bankName, description, transactions){
-    if (!name || !bankName || !description || ! transactions) return {error}
-    let account = { id: uuid(), name, bankName, description, transactions }
-    accounts.push(account)
-    return acount
+    const account = { id: uuid(), name, bankName, description, transactions : {}}
+    accounts.l.push(account)
+    return account
 }
 
 function update(id, name, bankName, description, transactions){
-    const account = accounts.find(account => account.id === id)
-    if (!name || !bankName || !description || ! transactions) return {error}
-    const { name, bankName, description, transactions } = account
+    let account = accounts.find(account => account.id === id)
+    let errors = []
+    if(!account) {
+        errors.push(`Accounts ID ${id} not found`)
+        return { errors }
+    }
+    account = { id, name, bankName, description, transactions }
     return account
-
 }
 
 function deleteOne(){
-    const account = accounts.find(account => account.id === id)
-    members.splice(account.indexOf, 1)
-    return account
-
-    
+    let deletedAccount = accounts.find(account => account.id === id)
+    accounts.filter(account => account !== deletedAccount)
+    return deletedAccount
 }
 
 
