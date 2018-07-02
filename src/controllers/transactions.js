@@ -12,14 +12,14 @@ function getOne(req, res, next) {
     const id = req.params.id
     const transactionId = req.params.transactionId
     const data = models.getOne(id, transactionId)
-    if (!data) return next({ status: 404, message: `Account ID ${id} not found` })
+    if (!data) return next({ status: 404, message: `Account!!! ID ${id} not found` })
     res.status(200).json({ data })
 }
 
 function create(req, res, next) {
     const id = req.params.id
     const { title, amount, pending } = req.body
-    if (!title|| !amount || !pending ) return next ({ status: 400, message: `All fields required`})
+    if (!title|| !amount || !pending ) return next ({ status: 400, message: `All fields required in proper format`})
     const data = models.create(id, title, amount, pending)
     res.status(200).json({ data })
 }
@@ -28,7 +28,6 @@ function update(req, res, next) {
     const id = req.params.id
     const transactionId = req.params.transactionId
     const { title, amount, pending } = req.body
-    if (!title|| !amount || !pending ) return next ({ status: 400, message: `All fields required`})
     const data = models.update(id, transactionId, title, amount, pending)
     if (!data) return next ({ status: 400, message: `Account ID ${id} not found`})
     res.status(200).json({ data })
@@ -41,8 +40,5 @@ function deleteOne(req, res, next){
     if (!data) return next({ status: 404, message: `Account ID ${id} not found`})
     res.status(200).send({ data })
 }
-
-
-
 
 module.exports = { getAll, getOne, create, update, deleteOne }

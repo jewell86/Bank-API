@@ -1,8 +1,0 @@
-[
-{ id: 123456, name : "jewell", bankName : "BECU", description: "main bank account", transactions : { id : 123445663, title : "Safeway", amount : 3.45, pending : false }},
-{ id: 123457, name : "jewell", bankName : "BECU", description: "main bank account", transactions : { id : 123445662, title : "Safeway", amount : 3.45, pending : false }},
-{ id: 123454, name : "jewell", bankName : "BECU", description: "main bank account", transactions : { id : 123445668, title : "Safeway", amount : 3.45, pending : false }},
-{ id: 123453, name : "jewell", bankName : "BECU", description: "main bank account", transactions : { id : 123445667, title : "Safeway", amount : 3.45, pending : false }},
-{ id: 123452, name : "jewell", bankName : "BECU", description: "main bank account", transactions : { id : 123445669, title : "Safeway", amount : 3.45, pending : false }},
-]
-
